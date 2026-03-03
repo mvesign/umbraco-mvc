@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using UmbracoMvc.Website.Extensions;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Recipe>
+@{
+	Layout = "Master.cshtml";
+}
+
+<h1>@(Model.Title ?? Model.Name)</h1>
+<div>
+	<p>@Model.Intro.ConvertLineBreaksToBrTags()</p>
+</div>
+<div>
+	<h2>Preparation</h2>
+	@Model.Preparation
+</div>
