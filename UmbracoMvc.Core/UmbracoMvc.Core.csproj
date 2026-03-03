@@ -2,7 +2,4 @@
 	<ItemGroup>
 		<PackageReference Include="Umbraco.Cms" />
 	</ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\UmbracoMvc.Core\UmbracoMvc.Core.csproj" />
-	</ItemGroup>
 </Project>

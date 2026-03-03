@@ -1,36 +1,30 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@using UmbracoMvc.Website.Extensions;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<RecipeArea>
+@using UmbracoMvc.Core.Extensions
+@using UmbracoMvc.Models
+@using UmbracoMvc.Models.ViewModels
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<RecipeAreaViewModel>
 @{
-    Layout = "Master.cshtml";
-
-    var items = Model.Children<Recipe>()?.Take(3) ?? [];
+    Layout = "HijackMaster.cshtml";
 }
-<h1>@(Model.Title ?? Model.Name)</h1>
-<div>@Model.Text</div>
+
+<h1>@Model.Heading</h1>
+<div>
+    @Model.Text
+</div>
 <div class="recipe-showcase">
     <h3>Most popular items</h3>
     <div class="recipe-cards">
-        @foreach (var recipe in items)
+        @foreach (var recipe in Model.PopularRecipes)
         {
-            var itemName = !string.IsNullOrWhiteSpace(recipe.ListTitle)
-                ? recipe.ListTitle
-                : !string.IsNullOrWhiteSpace(recipe.Title)
-                    ? recipe.Title
-                    : recipe.Name;
-            var description = !string.IsNullOrWhiteSpace(recipe.ListDescription)
-                ? recipe.ListDescription
-                : recipe.Intro?.ShortenTo100WithDots();
-
             <div class="recipe-card">
-                <a href="@recipe.Url()">
-                    <h4>@itemName</h4>
+                <a href="@recipe.Url">
+                    <h4>@recipe.Heading</h4>
                     <div>
-                        @if (recipe.ListImage != null)
+                        @if (recipe.ImageUrl != null)
                         {
-                            <img src="@recipe.ListImage.Url()" alt="@recipe.ListImage.Name"/>
+                            <img src="@recipe.ImageUrl" alt="@recipe.ImageAlt" />
                         }
-                        <p>@description</p>
+                        <p>@recipe.Description</p>
                     </div>
                 </a>
             </div>

@@ -1723,6 +1723,12 @@
           "Umbraco.Cms.PublishedCache.HybridCache": "[17.1.0, 18.0.0)"
         }
       },
+      "umbracomvc.core": {
+        "type": "Project",
+        "dependencies": {
+          "Umbraco.Cms": "[17.1.0, )"
+        }
+      },
       "Umbraco.Cms.Web.Website": {
         "type": "CentralTransitive",
         "requested": "[17.1.0, )",

@@ -8,6 +8,7 @@
     <File Path="nuget.config" />
     <File Path="README.md" />
   </Folder>
+  <Project Path="UmbracoMvc.Core/UmbracoMvc.Core.csproj" />
   <Project Path="UmbracoMvc.Models/UmbracoMvc.Models.csproj" />
   <Project Path="UmbracoMvc.Website/UmbracoMvc.Website.csproj" />
 </Solution>

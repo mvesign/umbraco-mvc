@@ -16,3 +16,17 @@ Course contains several knowledge checks exercises. Below are the questions pres
 4. *Drag the words from the right side into the correct boxes in the sentence.*
    - With the generic IPublishedContent, there is no explicit page model, so you need to use the `Value` extension method like `@Model.Value("property")`.
    - With strongly typed IPublishedContent, you can reference a Document Type model and directly access properties like `@Model.Property`.
+
+## Exercise 2: Render Controllers and Route Hijacking
+
+1. *When is PublishedContentWrapped typically used in Umbraco?*
+   - When building a custom model upon the existing PublishedContent model.
+
+2. *Route hijacking in Umbraco allows you to override the default controller for a specific document type by implementing a custom controller, giving you control over how content is rendered.*
+   - True.
+
+3. *ViewModels help separate business logic from view logic.*
+   - True.
+
+4. *Which controller should a custom controller inherit from to handle route hijacking in Umbraco?*
+   - `RenderController`

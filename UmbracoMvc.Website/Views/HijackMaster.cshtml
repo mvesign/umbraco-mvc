@@ -1,21 +1,18 @@
-﻿@using UmbracoMvc.Models
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<UmbracoMvc.Models.ViewModels.SiteViewModel> 
 @{
 	Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>@Model.Name - @(Model.Root<Site>()?.SiteName)</title>
+	<title>@Model.Site.Name</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<meta name="description" content="" />
 	<link href="https://cdn.jsdelivr.net/npm/modern-normalize@v2.0.0/modern-normalize.min.css" rel="stylesheet">
 	<link rel="icon" href="favicon.png">
 </head>
 <body>
- 	@RenderBody()
+    @RenderBody()
 </body>
 </html>

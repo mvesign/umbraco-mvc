@@ -1,6 +1,6 @@
 ﻿using Umbraco.Cms.Core.Strings;
 
-namespace UmbracoMvc.Website.Extensions;
+namespace UmbracoMvc.Core.Extensions;
 
 public static class StringExtensions
 {
@@ -25,7 +25,7 @@ public static class StringExtensions
     }
 
     // this is used in exercise 2
-    public static string? WithFallback(this string? input, string? fallback) =>
+    public static string WithFallback(this string? input, string fallback) =>
         !string.IsNullOrWhiteSpace(input)
             ? input
             : fallback;

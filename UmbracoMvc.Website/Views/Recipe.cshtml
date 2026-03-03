@@ -1,15 +1,13 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@using UmbracoMvc.Website.Extensions;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Recipe>
+﻿@using UmbracoMvc.Models.ViewModels
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<RecipeContentViewModel>
 @{
-	Layout = "Master.cshtml";
+    Layout = "HijackMaster.cshtml";
 }
-
-<h1>@(Model.Title ?? Model.Name)</h1>
+<h1>@Model.Content.Heading</h1>
 <div>
-	<p>@Model.Intro.ConvertLineBreaksToBrTags()</p>
+    <p>@Model.Content.Intro</p>
 </div>
 <div>
-	<h2>Preparation</h2>
-	@Model.Preparation
+    <h2>Preparation</h2>
+    @Model.Content.Preparation
 </div>
