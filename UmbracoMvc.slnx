@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/_SolutionFiles/">
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="KNOWLEDGE CHECKS.md" />
+    <File Path="LICENSE" />
+    <File Path="nuget.config" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="UmbracoMvc.Models/UmbracoMvc.Models.csproj" />
+  <Project Path="UmbracoMvc.Website/UmbracoMvc.Website.csproj" />
+</Solution>
