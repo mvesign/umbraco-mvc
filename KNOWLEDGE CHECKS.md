@@ -30,3 +30,17 @@ Course contains several knowledge checks exercises. Below are the questions pres
 
 4. *Which controller should a custom controller inherit from to handle route hijacking in Umbraco?*
    - `RenderController`
+
+## Exercise 3: Member Authentication
+
+1. *What else is needed for a member-based authentication implementation in Umbraco?*
+   - Setting up a Partial View and enabling public access to pages you want to restrict.
+
+2. *Which helper method is used to set up the basic login form in Umbraco?*
+   - `BeginUmbracoForm`
+
+3. *Which of the following best describes the purpose of member-based authentication?*
+   - It restricts certain pages to logged-in members only.
+
+4. *The login form in Umbraco is associated with which controller?*
+   - `UmbLoginController`
