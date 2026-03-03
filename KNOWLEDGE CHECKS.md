@@ -44,3 +44,14 @@ Course contains several knowledge checks exercises. Below are the questions pres
 
 4. *The login form in Umbraco is associated with which controller?*
    - `UmbLoginController`
+
+## Exercise 4: Surface Controllers
+
+1. *When using Surface Controllers for forms, which helper method must be used?*
+   - `@html.BeginUmbracoForm`
+
+2. *What information does the Surface Controller get when using `@html.BeginUmbracoForm`?*
+   - User culture and anti-forgery tokens.
+
+3. *What are Surface Controllers primarily used for in Umbraco?*
+   - Working with HTML/MVC forms on an Umbraco page.
