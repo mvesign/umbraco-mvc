@@ -55,3 +55,17 @@ Course contains several knowledge checks exercises. Below are the questions pres
 
 3. *What are Surface Controllers primarily used for in Umbraco?*
    - Working with HTML/MVC forms on an Umbraco page.
+
+## Exercise 5: Web API Controllers
+
+1. *Web API controllers in Umbraco are primarily used for building:*
+   - REST services.
+
+2. *The Web API in Umbraco is built on top of the ASP.NET Web API.*
+   - True.
+
+3. *What is the base class that Web API controllers inherit from in Umbraco 14 and above?*
+   - `ControllerBase`
+
+4. *Drag the words from the right side into the correct boxes in the sentence.*
+   - In Umbraco 14 and above, you must `manually authorize` requests against either a backoffice `user` or a logged-in `member`, as the default controllers no longer `automatically` check for `authorization`.

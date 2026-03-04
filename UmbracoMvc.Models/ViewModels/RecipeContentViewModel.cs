@@ -7,4 +7,6 @@ public class RecipeContentViewModel(
     IPublishedValueFallback publishedValueFallback) : SiteViewModel(content, publishedValueFallback)
 {
     public RecipeViewModel Content { get; } = new RecipeViewModel(content);
+
+    public MemberContent Member { get; set; } = new MemberContent();
 }

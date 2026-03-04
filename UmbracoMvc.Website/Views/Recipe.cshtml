@@ -2,8 +2,13 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<RecipeContentViewModel>
 @{
     Layout = "HijackMaster.cshtml";
+
+    var hasUpVoted = Model.Member.HasUpVoted ? "👍" : string.Empty;
 }
-<h1>@Model.Content.Heading</h1>
+<h1>
+    <span id="upvote-status">@hasUpVoted</span>
+    @Model.Content.Heading
+</h1>
 <div>
     <p>@Model.Content.Intro</p>
 </div>
@@ -11,3 +16,21 @@
     <h2>Preparation</h2>
     @Model.Content.Preparation
 </div>
+@if (Model.Member.IsLoggedIn && !Model.Member.HasUpVoted)
+{
+    <button id="upvote-button" onclick="upvote()">👍</button>
+    <script>
+        const upvote = async function () {
+            const response = await fetch("/umbraco/member-api/recipe/@Model.Key/upvote", {
+                method: "POST"
+            });
+
+            if (response.ok)
+            {
+                const button = document.getElementById("upvote-button");
+                button.parentNode.removeChild(button);
+                document.getElementById('upvote-status').innerHTML = '👍';
+            }
+        }
+    </script>
+}
