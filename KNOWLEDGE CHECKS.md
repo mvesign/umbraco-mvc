@@ -69,3 +69,28 @@ Course contains several knowledge checks exercises. Below are the questions pres
 
 4. *Drag the words from the right side into the correct boxes in the sentence.*
    - In Umbraco 14 and above, you must `manually authorize` requests against either a backoffice `user` or a logged-in `member`, as the default controllers no longer `automatically` check for `authorization`.
+
+## Exercise 6: Content API
+
+1. *How do you save and publish content in Umbraco programmatically?*
+   - Using `_contentService.Save(content);` and `_contentService.Publish(content, ["*"]);`.
+
+2. *What are the mandatory properties when creating content programmatically?*
+   - `Name`
+   - `ParentId`
+   - `DocumentTypeAlias`
+
+3. *When creating or updating nodes in Umbraco, you can set custom properties using the `SetValue` method, which requires the property alias and the input value.*
+   - True;
+
+4. *What does the asterisk (*) in `_contentService.Publish(content, ["*"]);` indicate?*
+   - It means to publish all cultures.
+
+5. *Drag the words from the right side into the correct boxes in the sentence.*
+   - When using ContentService in `Views`, it makes calls to the `database`, so it’s recommended to use `UmbracoHelper` to access the published `cache`.
+
+6. *What can you do with services in Umbraco?*
+   - Create, delete, and update: content, Document Types, and Data Types programmatically.
+
+7. *The `ServiceContext` in Umbraco is used to access various services such as content, media, and member management.*
+   - True.
