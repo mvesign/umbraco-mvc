@@ -94,3 +94,14 @@ Course contains several knowledge checks exercises. Below are the questions pres
 
 7. *The `ServiceContext` in Umbraco is used to access various services such as content, media, and member management.*
    - True.
+
+## Exercise 7: Media API
+
+1. *What are the mandatory properties when creating media programmatically?*
+   - `Name`, `ParentId`, `MediaTypeAlias`.
+
+2. Why do we need to use `TemporaryFileService` when working with media programmatically in Umbraco?
+  - To automatically clean up temporary files and maintain a tidy folder, improving performance.
+
+3. What method is used when creating media items programmatically?
+   - `CreateMedia()`
