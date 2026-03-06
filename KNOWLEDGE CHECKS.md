@@ -108,4 +108,11 @@ Course contains several knowledge checks exercises. Below are the questions pres
 
 ## Exercise 8: Composing Umbraco with Services and Notifications
 
-1. **
+1. *Umbraco notifications can be used to modify the behavior of the back office during various events, such as publishing content.*
+   - True.
+
+2. *What is the preferred way to register a composer?*
+   - Registering the composer in a class inheriting from `IComposer`.
+
+3. *Drag the words from the right side into the correct boxes in the sentence:*
+   - `Composing` is the process of selecting functionality `at startup`, while `a composer` implements these choices `during the application's initialisation`.
