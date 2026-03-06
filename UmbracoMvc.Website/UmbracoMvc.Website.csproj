@@ -10,6 +10,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\UmbracoMvc.Core\UmbracoMvc.Core.csproj" />
+		<ProjectReference Include="..\UmbracoMvc.Logic\UmbracoMvc.Logic.csproj" />
 		<ProjectReference Include="..\UmbracoMvc.Models\UmbracoMvc.Models.csproj" />
 	</ItemGroup>
 	<ItemGroup>

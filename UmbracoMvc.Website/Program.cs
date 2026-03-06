@@ -1,4 +1,4 @@
-WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
 #if DEBUG
 
@@ -12,7 +12,7 @@ builder.CreateUmbracoBuilder()
     .AddComposers()
     .Build();
 
-WebApplication app = builder.Build();
+var app = builder.Build();
 
 await app.BootUmbracoAsync();
 

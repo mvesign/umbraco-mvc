@@ -105,3 +105,7 @@ Course contains several knowledge checks exercises. Below are the questions pres
 
 3. What method is used when creating media items programmatically?
    - `CreateMedia()`
+
+## Exercise 8: Composing Umbraco with Services and Notifications
+
+1. **

@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
-using Microsoft.Extensions.Caching.Memory;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
+using UmbracoMvc.Logic.Abstractions.Services;
 using UmbracoMvc.Models;
 using UmbracoMvc.Models.ViewModels;
 
@@ -18,7 +18,7 @@ public class RecipeController(
     IVariationContextAccessor variationContextAccessor,
     ServiceContext serviceContext,
     IMemberManager memberManager,
-    IMemoryCache memoryCache) : RenderController(logger, compositeViewEngine, umbracoContextAccessor)
+    IRecipeUpvoteService recipeUpvoteService) : RenderController(logger, compositeViewEngine, umbracoContextAccessor)
 {
     public override IActionResult Index()
     {
@@ -54,9 +54,7 @@ public class RecipeController(
             return memberContent;
         }
 
-        memberContent.HasUpVoted = memoryCache.TryGetValue<List<RecipeUpVote>>(UpvoteRecipeController.MemCacheKey, out var votes)
-            && votes is not null
-            && votes.Any(v => v.MemberId == member.Key && v.RecipeId == CurrentPage!.Key);
+        memberContent.HasUpVoted = recipeUpvoteService.HasMemberUpVoted(CurrentPage!.Key, member.Key);
         
         return memberContent;
     }

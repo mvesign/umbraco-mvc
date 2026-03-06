@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Filters;
-using UmbracoMvc.Models;
+using UmbracoMvc.Logic.Abstractions.Services;
 
 namespace UmbracoMvc.Website.Controllers;
 
@@ -12,7 +11,7 @@ namespace UmbracoMvc.Website.Controllers;
 public class UpvoteRecipeController(
     IUmbracoContextAccessor umbracoContextAccessor,
     IMemberManager memberManager,
-    IMemoryCache memoryCache) : ControllerBase
+    IRecipeUpvoteService recipeUpvoteService) : ControllerBase
 {
     public const string MemCacheKey = "Recipe_UpVote";
 
@@ -46,25 +45,12 @@ public class UpvoteRecipeController(
             return Unauthorized();
         }
 
-        if (!memoryCache.TryGetValue<List<RecipeUpVote>>(MemCacheKey, out var upvotes) || upvotes is null)
+        var upvoteResult = recipeUpvoteService.UpVote(recipe.Key, member.Key);
+
+        return upvoteResult switch
         {
-            upvotes = [];
-        }
-
-        if (upvotes.Any(v => v.RecipeId == recipe.Key && v.MemberId == member.Key))
-        {
-            return BadRequest("Recipe was already up-voted by the currently logged in member");
-        }
-
-        upvotes.Add(new RecipeUpVote
-        {
-            DateTime = DateTime.UtcNow,
-            MemberId = member.Key,
-            RecipeId = recipe.Key
-        });
-
-        memoryCache.Set(MemCacheKey, upvotes);
-
-        return Ok();
+            Models.Enums.RecipeUpVoteResult.FailedAlreadyUpVotedByMember => BadRequest("Recipe was already up-voted by the currently logged in member"),
+            _ => Ok()
+        };
     }
 }
