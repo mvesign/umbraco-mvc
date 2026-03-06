@@ -50,6 +50,14 @@ namespace UmbracoMvc.Models
 		// properties
 
 		///<summary>
+		/// Home
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("home")]
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent Home => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "home");
+
+		///<summary>
 		/// Site name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "")]

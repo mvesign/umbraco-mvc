@@ -116,3 +116,14 @@ Course contains several knowledge checks exercises. Below are the questions pres
 
 3. *Drag the words from the right side into the correct boxes in the sentence:*
    - `Composing` is the process of selecting functionality `at startup`, while `a composer` implements these choices `during the application's initialisation`.
+
+## Exercise 9: Routing with Content Finders
+
+1. *How does the default Content Finder in Umbraco segment the URL?*
+   - By using slashes to represent nodes/documents.
+
+2. *In Umbraco, what is represented by each segment between slashes in a URL?*
+   - A node/document in the CMS.
+
+3. *Drag the words from the right side into the correct boxes in the sentence:*
+   - The purpose of Content Finders in Umbraco is to determine which 'content' to 'render' based on the 'URL'.
