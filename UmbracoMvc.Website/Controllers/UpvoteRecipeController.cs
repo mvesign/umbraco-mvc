@@ -16,6 +16,7 @@ public class UpvoteRecipeController(
     public const string MemCacheKey = "Recipe_UpVote";
 
     [HttpPost("/umbraco/member-api/recipe/{id:guid}/upvote")]
+    [ValidateAntiForgeryToken]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
