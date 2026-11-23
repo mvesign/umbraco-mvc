@@ -1,5 +1,6 @@
 ﻿@using UmbracoMvc.Models.ViewModels
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<RecipeContentViewModel>
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
 @{
     Layout = "HijackMaster.cshtml";
 
@@ -18,11 +19,15 @@
 </div>
 @if (Model.Member.IsLoggedIn && !Model.Member.HasUpVoted)
 {
+    // The upvote endpoint validates an antiforgery token (CSRF): send the request token as a header.
+    var antiforgery = Antiforgery.GetAndStoreTokens(Context);
+
     <button id="upvote-button" onclick="upvote()">👍</button>
     <script>
         const upvote = async function () {
             const response = await fetch("/umbraco/member-api/recipe/@Model.Key/upvote", {
-                method: "POST"
+                method: "POST",
+                headers: { "@antiforgery.HeaderName": "@antiforgery.RequestToken" }
             });
 
             if (response.ok)
